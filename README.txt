@@ -21,7 +21,7 @@ Currently supports the following features:
 
 -Unlock all Bestiary, Diary & Enciclopedia entries (including Amigo Dungeon ones)
 
--Unlock all characters from the start
+-Unlock all characters from the beginning of the story
 
 ---------------------------------------------------------------
 
@@ -41,7 +41,14 @@ Some cool things you can do with this:
 
 How to use:
 
-1- Open cmd on current folder (e.g. "Powershell" on Windows) and run  "python ./Magical-Editor.py"
+You will need to have Python 3 installed on your computer in order to run the program. If you do not have Python, install it from the main page, and when prompted, check the "install pip" option.
+
+1- Open cmd on current folder (e.g. "Powershell" on Windows) and run  "python ./v14.py"
+   If an error shows up, try installing the following dependencies through the cmd
+   pip install image
+   pip install tkinter
+   pip install enum	
+
 2- Click on "Open save file" and choose your ".sav" file. 
    If you are using a flashcart, this will be in the "SAVE/" folder on the root of your microSD. 
    If you are using an emulator, such as DeSmuME, you can go to "File->Export Backup Memory".

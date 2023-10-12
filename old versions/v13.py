@@ -1,13 +1,3 @@
-#########################  Requirements  ###########################
-
-#pip install image
-#pip install tkinter
-#pip install enum
-
-
-##################################################################
-
-
 #Otro buen ejemplo: https://www.pythonguis.com/tutorials/create-ui-with-tkinter-grid-layout-manager/
 
 #todo resetear flags de historia y cofres/leafs/items recogidos
@@ -17,7 +7,6 @@
 #todo poner de yapa un "play time" y "bira"?
 #todo dejar una notita para explicar el funcionamiento de tener a Male y Female a la vez (usar teleport enseguida. Se repone a Lassi en Neumann).
 #todo interfaz linda de elegir male/female (click portraits?)
-#todo change character portraits/overworld sprites (pirate otther, brownie, pyrite, etc=
 
 #todo unlcock diary Falta... no importa
 import tkinter as tk
@@ -178,7 +167,6 @@ class MagicalEditor:
         self.characters = None #Array de pjes
         self.changesDone = None #Array de bools para cuando desbloqueas cosas (un array por file)
         self.labelsDoneGUI = None #AArray de StringVars para el slot actual, lo que se muestra en pantalla
-        self.imgsStarsign = None #Matriz de las imagenes de los starsigns seleccionados para cada pje. Primer fila protas, segunda eggs
         self.fileSelectedActual = None
         self.fileSelected = None # 0,1 o 2 para slots 1, 2 o 3. Un intvar ligado a los radiobox. Al hacer click cambia instantaneamente, mientras que selectedActual cambia solo cuando yo le digo (despues de actualizar los datos internos)
         self.mainFrame = None #tab de protas
@@ -236,8 +224,11 @@ class MagicalEditor:
 
         #Boton Export .sav
         tk.Button(controlPanel, text='Export save file', command=self.export_sav).grid(column = column, row = row+1, sticky = (N,S, E, W), padx = 20)
-        self.ponerImagen('imgs/save.png', 40, 40, controlPanel, row+2, column)
 
+        image = openImage('imgs/save.png', 40, 40)
+        save_img = tk.Label(controlPanel, image=image)
+        save_img.image = image
+        save_img.grid(row=row+2, column=column)
 
         row = 1
         column =5
@@ -251,7 +242,6 @@ class MagicalEditor:
         separator.grid(row=1, sticky = (W, E, N))
 
         #Boton volver a dejar el save original
-
         imagenRedo = openImage('imgs/redo.png', 20,20)
         botonRedo = tk.Button(root, text = 'Redo', image = imagenRedo, command = self.undoChanges).grid( column = 2, row = 0, sticky = (N, E))
         self.img = imagenRedo
@@ -268,8 +258,6 @@ class MagicalEditor:
         self.crearColumnas01LabelsyImg(self.mainFrame)
         self.crearColumnas01LabelsyImg(self.eggFrame)
 
-
-        self.imgsStarsign = []
         self.crearGuiEntries(self.mainFrame)
         self.crearGuiEntries(self.eggFrame)
 
@@ -295,46 +283,39 @@ class MagicalEditor:
         column =5
 
         botonBestiario = tk.Button(controlPanel, text= "Unlock Bestiary", command= self.desbloquearBestiario).grid(column = column, row = row, sticky = (N, S, W), padx = 0)
-        im = self.ponerImagen('imgs/bestiary.png', 25, 25, controlPanel, row, column-1, sticky = E)
+        img = openImage('imgs/bestiary.png', 25,25)
+        self.im = img
+        logo = tk.Label(controlPanel, image=img)
+        logo.grid(column = column-1, row = row, sticky = E)
+
 
 
         botonMapaEnciclopediaDiario = tk.Button(controlPanel, text= "Unlock Maps/Diary/Encl", command= self.desbloquearMapas).grid(column = column, row = row+1, sticky = (N, S, W, E))
-        im = self.ponerImagen('imgs/map.png', 25, 25, controlPanel, row+1, column-1, sticky = E)
+        img = openImage('imgs/map.png', 25,25)
+        self.im2 = img
+        logo = tk.Label(controlPanel, image=img)
+        logo.grid(column = column-1, row = row+1, sticky = E)
 
 
         botonEggs = tk.Button(controlPanel, text= "Unlock Egg Characters", command= self.desbloquearHuevos).grid(column = column, row = row+2, sticky = (N, S, W, E))
-        im = self.ponerImagen('imgs/egg.png', 25, 25, controlPanel, row+2, column-1, sticky = E)
+        img = openImage('imgs/egg.png', 25,25)
+        self.im3 = img
+        logo = tk.Label(controlPanel, image=img)
+        logo.grid(column = column-1, row = row+2, sticky = E)
 
 
-        botonAmigoItems = tk.Button(controlPanel, text= "Unlock Amigo Items", command=
- self.desbloquearAmigoItems).grid(column = column+3, row = row, sticky = (N, S))
-        im = self.ponerImagen('imgs/amigo4.png', 33, 25, controlPanel, row, column+2, sticky = W) #columnspan = 2")
-
-        botonTodosPjes = tk.Button(controlPanel, text= "Unlock Main Characters", command=
- self.desbloquearMains).grid(column = column+3, row = row+1, sticky = (N, S))
-        im = self.ponerImagen('imgs/team.png', 33, 25, controlPanel, row+1, column+2, sticky = W) #columnspan = 2")
+        botonAmigoItems = tk.Button(controlPanel, text= "Unlock Amigo Items", command= self.desbloquearAmigoItems).grid(column = column+3, row = row, sticky = (N, S))
+        img = openImage('imgs/amigo3.png', 30,25)
+        self.im4 = img
+        logo = tk.Label(controlPanel, image=img)
+        logo.grid(column = column+2, row = row, sticky = W) #columnspan = 2")
 
 
-        botonCoolPortraits= tk.Button(controlPanel, text= "Change Character Portraits!", command=
- self.cambiarSprites).grid(column = column+3, row = row+2, sticky = (N, S), padx = 0)
-        im = self.ponerImagen('imgs/ports.png', 25, 25, controlPanel,column = column+2, row = row+2, sticky = W)
-
-        botonFlags = tk.Button(controlPanel, text= "Reset Story Flags (Buggy)", command= self.resetearStoryFlags).grid(column = column+4, row = row, sticky = (N, S))
+        botonFlags = tk.Button(controlPanel, text= "Reset Story Flags (Buggy)", command= self.resetearStoryFlags).grid(column = column+3, row = row+1, sticky = (N, S))
 
 
-        ''' orden alternativo de los ultimos dos botones
-        botonCoolPortraits= tk.Button(controlPanel, text= "Change Character Portraits!", command=
- self.cambiarSprites).grid(column = column+4, row = row, sticky = (E, N, S), padx = 30)
-        im = self.ponerImagen('imgs/ports.png', 25, 25, controlPanel, row, column+4, sticky = W) #columnspan = 2")
-
-        botonFlags = tk.Button(controlPanel, text= "Reset Story Flags (Buggy)", command= self.resetearStoryFlags).grid(column = column+3, row = row+2, sticky = (N, S))
-
-        '''
-
-
-
-
-        #Textos de al hacer click en boton
+            #Textos de al hacer click en boton
+        self.changesDone = [ [ False for _ in range(6)] for file in range(3)]
         self.labelsDoneGUI = []
         for fila in range(3): #primeras 3 columnas
             label= tk.Label(controlPanel, text = '')
@@ -345,27 +326,28 @@ class MagicalEditor:
             label.grid(column = column+4, row = row+fila, padx= 40)
             self.labelsDoneGUI.append(label)
 
-        #utimo label
-        label= tk.Label(controlPanel, text = '')
-        label.grid(column = column+4, row = row+1, padx= 10)
-        self.labelsDoneGUI.append(label)
 
-        self.changesDone = [ [ False for _ in range(len(self.labelsDoneGUI))] for file in range(3)]
 
 
     def crearRowNombres(self, tab):
         #Label nombres
         ttk.Label(tab, text='NAME').grid(column=0, row=1, sticky=W)
         #Imagen nombres
-        self.ponerImagen(path + r'imgs\name.png',40,20,tab,row = 1, column = 1) #, rowspan=1, padx=5, pady=5)
-
+        filename = path + r'imgs\name.png'
+        image = openImage(filename, 40, 20)
+        name_entry_img = tk.Label(tab, image=image)
+        name_entry_img.image = image
+        name_entry_img.grid(row=1, column=1) #, rowspan=1, padx=5, pady=5)
 
     def crearRowStarsigns(self, tab):
         #Label Starsign
         ttk.Label(tab, text='Star').grid(column=0, row=2, sticky=W)
         #Imagen Starisgn Select
-        self.ponerImagen(path + r'imgs\elemSelect.png',20,20,tab,row = 2, column = 1) #, rowspan=1, padx=5, pady=5)
-
+        filename = path + r'imgs\elemSelect.png'
+        image = openImage(filename, 20, 20)
+        starsign_img = tk.Label(tab, image=image)
+        starsign_img.image = image
+        starsign_img.grid(row=2, column=1) #, rowspan=1, padx=5, pady=5)
         #Imagenesde starsigns
         star_imgs = []
         for elem_id in range(8):
@@ -389,9 +371,14 @@ class MagicalEditor:
             ttk.Label(tab, text=stat.name).grid(column=0, row=row, sticky=W) #Nombre (texto)
 
             #Columa 1: Imagen:
+            filename = path + r"imgs\stat" + str(stat.id) + ".png" #r"C:\Users\Graciela\Downloads\Games\Romhack\gui editor\imgs\stat" + str(stat.value) + ".png"
+            image = openImage(filename, 20, 20)
 
-            filename = path + r"imgs\stat" + str(stat.id) + ".png"
-            self.ponerImagen(filename,20,20,tab,row = row, column = 1) #, rowspan=1, padx=5, pady=5)
+            stat_img = tk.Label(tab, image=image)#self.fields_img[statid] = tk.Label(mainframe, image=image)
+            stat_img.image = image #Tengo que resguardar la iamgen del recolector de basura para que se muestre
+            stat_img.grid(row=row, column=1) #, rowspan=1, padx=5, pady=5)
+
+
 
 
     def crearGuiEntries(self, tab):
@@ -409,28 +396,29 @@ class MagicalEditor:
         #Imagenes de elementos (para starsign y 6th spell)
         elemImgs_dic, spellImgs_dic = self.asignarImgsStarsigns()
 
-        self.imgsStarsign.append([None for _ in range(7)])
-
-
         #Matriz con nombres de pjes, portraits y sus stats
         for char in chars:
             c = char.id+2
 
             ##Fila 0: Foto de pje
             portrait_path = path + r'imgs\\char' + str(char.id) + ".png"
-            self.ponerImagen(portrait_path,40,40,tab,row = 0, column = c, sticky = W) #, rowspan=1, padx=5, pady=5)
+            image = openImage(portrait_path, 40, 40)
+                #Poner
+            char_portrait = tk.Label(tab, image=image)
+            char_portrait.image = image #Tengo que repetir esto para que se muestre
+            char_portrait.grid(row=0, column=c, sticky = W) #, rowspan=1, padx=5, pady=5)
 
             ##Fila 1: Nombre de pje
             ttk.Entry(tab, text='', width = 7, textvariable = char.name).grid(column=c, row=1, sticky=(W,E))
 
             ##Fila 2: Selección de Starsign
-            elem_menu = tk.OptionMenu(tab, char.stats[STARSIGN_ID] , 'Fire', 'Wood', 'Wind', 'Earth', 'Water', 'Light', 'Dark', command = self.setearImagenElem)
-            elem_menu.grid(row=2, column = c, sticky= W)
+            elem_menu = tk.OptionMenu(tab, char.stats[STARSIGN_ID] , 'Fire', 'Wood', 'Wind', 'Earth', 'Water', 'Light', 'Dark')
             menu = elem_menu.nametowidget(elem_menu.menuname)
             for label, image in elemImgs_dic.items():
                 menu.entryconfigure(label, image= image, compound = 'left')
-            self.imgsStarsign[-1][char.id%7] = ttk.Label(tab, text = '' )
-            self.imgsStarsign[-1][char.id%7].grid(row = 2, column = c, sticky = (N,S,E))
+            elem_menu.grid(row=2, column = c, sticky= W)
+            #self.ponerImagen(path, sizex, sizey, tab, row, column)
+
 
 
             ##Fila >= 3:  Resto de los stats numéricos
@@ -456,11 +444,12 @@ class MagicalEditor:
 
                 field.grid(column=c, row=3+stat.id, sticky=(W, E))
 
-    def ponerImagen(self, path, sizex, sizey, tab, row, column, sticky = None):
+    def ponerImagen(self, path, sizex, sizey, tab, row, column):
+
         image = openImage(path, sizex, sizey)
         imagen = tk.Label(tab, image=image)
-        imagen.image = image #Tengo que resguardar la iamgen del recolector de basura para que se muestre
-        imagen.grid(row=row, column=column, sticky = sticky)
+        imagen.image = image
+        imagen.grid(row=row, column=column) #, rowspan=1, padx=5, pady=5)
         return imagen
 
     def asignarImgsStarsigns(self):
@@ -514,10 +503,6 @@ class MagicalEditor:
         #Pongo los labels de cambios hechos en este slot
         for i in range(len(self.labelsDoneGUI)): self.setearLabelChangeDone(i, write = False)
 
-        #seteo imagenes de starsigns
-        self.setearImagenElem()
-
-
     #guardo los cambios que hice en el slot actual y paso a leer el seleccionado
     def cambiarSlot(self, *args):
         if(self.savData != None): self.updateSavData()
@@ -567,6 +552,7 @@ class MagicalEditor:
 
         #char.spell6Name.set(spellsDic[char.stats[SPELL6_ID].get()]) # nombre completo, muy largo
         char.spell6Name.set(char.stats[SPELL6_ID].get())
+
 
      #Se llama al leer los datos del slot que esté seleccionado
     #Recordar que el almacenamiento de nombres es distinto al de stats, y que solo se guarda el nombre de un Shujinkoo y no de Male y Female
@@ -639,25 +625,6 @@ class MagicalEditor:
         for address in charSlotsMain:
             self.writeBytes(address+slot, genero, 1,offsetFiles)
 
-    #Llamado al seleccionar un starsign para un pje. Le cambia la foto al gui
-    def setearImagenElem(self, *args):
-
-        for char in self.characters:
-            starsign = char.stats[STARSIGN_ID].get()
-            if(starsign == ''): continue
-            starsign_id = elems_dic[starsign]
-            if(char.id <7):
-                self.imgsStarsign[0][char.id % 7].config(image = self.star_imgs[starsign_id])
-                self.imgsStarsign[0][char.id % 7].image =  self.star_imgs[starsign_id]
-            else:
-                self.imgsStarsign[1][char.id % 7].config(image = self.star_imgs[starsign_id])
-                self.imgsStarsign[1][char.id % 7].image =  self.star_imgs[starsign_id]
-
-
-        #im = self.ponerImagen('imgs/elem0.png', 20, 20, tab, 2, c, sticky = E)
-        #im.config(pady = 15)
-        #im.config(image = image)
-
 
     #Desbloquea bestiario, enciclopedia, y diario
     def desbloquearBestiario(self):
@@ -665,6 +632,7 @@ class MagicalEditor:
         self.writeBytes(bestiaryOffset, checkAll, bestiarySize)
         self.setearLabelChangeDone(0,write = True)
         return
+
     #Desbloquea mapas y warp points (no de Neumann)
     #Todo desbloquear de neumann, diary no anda aun
     def desbloquearMapas(self):
@@ -676,20 +644,8 @@ class MagicalEditor:
     def resetearStoryFlags(self):
         checkAll = [0x0 for _ in range(storyFlagsSize)]
         self.writeBytes(storyFlagsOffset,checkAll, storyFlagsSize)
-        self.setearLabelChangeDone(6, write = True)
+        self.setearLabelChangeDone(4, write = True)
         return
-
-    #pone Pyrite, putty pea, etc en los sprites de los que no son shukinkou
-    def cambiarSprites(self):
-        for char in self.characters:
-            if char.id >7 or char.id <2: continue #afecto de Mokka hasta sorbet. Afectar a huevos da bug
-            portait_id = (char.id+0x4B)
-            if(char.id == 7): portait_id = 0x0C # pirate otter. No llega a a este valor
-            #offset de portait: byte 5 del slot de pje
-            self.writeBytes(char.offset+5, portait_id .to_bytes(1,'little') ,1)
-        self.setearLabelChangeDone(5, write = True)
-
-
 
     #desbloquea Amigo Figurines (para contra Macadameus), Frogs
     def desbloquearAmigoItems(self):
@@ -803,18 +759,6 @@ class MagicalEditor:
 
 
         self.setearLabelChangeDone(2, write = True)
-        return
-
-    #Poner los 5 ppales en los slots 1-5
-    def desbloquearMains(self):
-        check = [4,3,5,6,7]
-        for add in [charSlotsMain[0], charSlotsMain[1], genderAdressesHeader[0]]:
-            self.writeBytes(add+1,check, 5)
-
-        battleOrder = [0,1,2,3,4,5,0xFF,0xFF]
-        self.writeBytes(0x8038, battleOrder, 8) #battle slots
-
-        self.setearLabelChangeDone(4, write = True)
         return
 
     #todo todoooo
