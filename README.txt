@@ -76,6 +76,25 @@ After that, character slots 1 & 2 will have both Male and Female protagonists, a
 
 Be careful when unlocking main characters or when changing their starsigns. If not, dependig on where on the story you are, you may lock yourself out of progression.
 
+---------------------------------------------------------------
+
+Concerning Spells:
+
+-Spells #1-40 are the normal spells you encounter in the game
+
+-Spell #41 is a backfiring spell (which sometimes happens when using Egg characters)
+
+-Spells #42-44 are the "Planet Alignment" spells (what happens when you align all five planets)
+  #42 attacks enemies (you align them)
+  #43 attacks your team (enemies align them)
+  #44 attacks everyone (they align by themselves)
+
+-Spells #45 onward are enemies spells - therefore, they will attack your own team when used, as if an enemy had casted them.
+ Note however that some spells, like #49, do inflict damage on enemies instead of your team. I haven't tried them all yet so there could be others among there
+
+-Spell #87: Cures enemies
+-Spell #90: Damages enemies + gives stats raise
+
 -------------------
 Concerning Regions:
 
