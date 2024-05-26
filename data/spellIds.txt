@@ -1,0 +1,118 @@
+0  - S
+01 - Lava Spuds F
+02 - Afterburner F
+03 - Heat Fondu F
+04 - Feverish Might F
+05 - Dragon's tongue F
+06 - Pepperthorn H
+07 - Minty Freshness H
+08 - Briar Patch H
+09 - Parsley Wall H
+10 - Cactus Crush H
+11 - Wind Talon V
+12 - Healing Wing V
+13 - Falcon Dive V
+14 - Mother's Nest V
+15 - Pteranodon V
+16 - Gravel Pounder T
+17 - Stalagmiter T
+18 - Boulder Bash T
+19 - Vibrant Dance T
+20 - Bellowing Rock T
+21 - Hailstorm A
+22 - Fresh Drop A
+23 - Absolute Zero A
+24 - Sparkling Shield A
+25 - Zap-O'-War A
+26 - Arclight L
+27 - Crystal Laser L
+28 - Healing Light L
+29 - Prism Barrier L
+30 - Nova Sword L
+31 - Shadow Die O
+32 - Jackpot O
+33 - Blood Money O
+34 - Dazzle Darts O
+35 - Zero Joker O
+36: Comet Shower S
+37: Amigo Parade S
+38: Brawly Ball S
+39: High Art S
+40: Celestial Swap S
+41: Magic Blowup S
+42: Orbit's End S
+43: Orbit's End S
+44: Orbit's End S
+45 - Empty S
+46 - Lava Spuds F
+47 - Afterburner F
+48 - Heat Fondu F
+49 - Feverish Might F
+50 - Dragon's tongue F
+51 - Pepperthorn H
+52 - Minty Freshness H
+53 - Briar Patch H
+54 - Parsley Wall H
+55 - Cactus Crush H
+56 - Wind Talon V
+57 - Healing Wing V
+58 - Falcon Dive V
+59 - Mother's Nest V
+60 - Pteranodon V
+61 - Gravel Pounder T
+62 - Stalagsmoosher T
+63 - Boulder Bash T
+64 - Vibrant Dance T
+65 - Bellowing Rock T
+66 - Hailstorm A
+67 - Fresh Drop A
+68 - Cleansing Drop A
+69 - Sparkling Shield A
+70 - Zap-O'-War A
+71 - Arclight L
+72 - Crystal Laser L
+73 - Healing Light L
+74 - Prism Barrier L
+75 - Nova Sword L
+76 - Shadow Die O
+77 - Jackpot O
+78 - Blood Money O
+79 - Dazzle Darts O
+80 - Zero Joker O
+81: Briar Path H
+82: Magma Roast F
+83: Smoke Forte F
+84: Meringue Drop A
+85: Ice Fromage A
+86: Blinding Light L
+87: Love Shower L
+88: Darkness Eternal O
+89: Eternal Servant O
+90: Brutal Training O
+91: Lava Spuds F
+92: Hailstorm A
+93 - Celestial Swap S
+94 - Celestial Swap S
+95 - Celestial Swap S
+96 - Lava Spuds F
+97 - Pepperthorn H
+98 - Wind Talon V
+99 - Gravel Pounder T
+100 - Corona Egg F
+101 - Chamomille Egg H 
+102 - Pelican Egg V
+103 - Stout Egg T
+104 - Compote Egg A
+105 - Luminous Egg L
+106 - Crystal Egg O
+107: Forested Field A
+108: Glamor Shot O
+109: Blazing Cannon F
+110: Weapon Vortex S
+111: Megaburn Cannon S
+112: Insect Bullets S
+113: Paradigm Shift L
+114: Big Crunch O
+115: Hailstorm A
+116: Heat Fondue F
+117 - 255: ??? S

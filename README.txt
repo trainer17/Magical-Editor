@@ -61,10 +61,13 @@ You will need to have Python 3 installed on your computer in order to run the pr
 
 On functionality:
 
--When adding the second protagonist to your team, you will need to warp to a new location first to settle things into place (any Pizza Warp point will do). Same applies when unlocking all characters.
+-When adding the second protagonist to your team, you will need to warp to a new location first to settle things into place (any Pizza Warp point will do).
+Same rule applies when unlocking all characters.
 After that, character slots 1 & 2 will have both Male and Female protagonists, and Lassi will be waiting at Neumann. You can have Lassi go back into your team if you talk to her, but you won't be able to remove either of the main protagonists unless you use this tool again.
 
--Starsign changes will affect a character's element, so he will be affected by planet alignment and enemies' spells, and will also determine special elemental equipment. Spells have their own element, so you can have, say, Pico as a water starsign while still retaining all his water spells.
+-Starsign changes will affect a character's element and field spell, so he will be affected by planet alignment and enemies' spells, but it won't change the 5 basic spells. Spells have their own element, so you can have, say, Pico as a water starsign while still retaining all his fire spells.
+
+-Stats affect only base stats - these will be modified further by equipment.
 
 - Available spells are determined by the level of your character. Refer to the new wiki (https://kovopedia.com/wiki/Main_Page) to see at what level each spell unlocks. Levels don't influence stats in any way afaik.
 
