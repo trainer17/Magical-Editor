@@ -35,15 +35,13 @@ Some cool things you can do with this:
 
 -Unlock Fondue/Kir (Fire egg) early on so as to see all his special dialogs as you progress through the story
 
-
-
 ----------------------------------------------------------------
 
 How to use:
 
 You will need to have Python 3 installed on your computer in order to run the program. If you do not have Python, install it from the main page, and when prompted, check the "install pip" option.
 
-1- Open cmd on current folder (e.g. "Powershell" on Windows) and run  "python ./v14.py"
+1- Open cmd on current folder (e.g. "Powershell" on Windows) and run  "python ./v17.py"
    If an error shows up, try installing the following dependencies through the cmd
    pip install image
    pip install tkinter
@@ -56,6 +54,14 @@ You will need to have Python 3 installed on your computer in order to run the pr
 4- Click on "Export Save" 
 5- Backup old save and replace with new one. If you are using an emulator such as MelonDS or DeSmuMe, you will need to select the "Import savefile" / "Import Backup Memory" from the menu.
 6- Enjoy!
+
+---------------------------------------------------------------
+On choosing protagonist's names:
+
+-When choosing to play both with Male and Female protagonists in your team, you will need to run another tool included here in order to set the "new" protagonist's name 
+	 Simply run "python ./romNameChanger.py" in cmd, open the ROM (.nds) file you are using, and click on "Patch ROM". 
+	 This Should support both USA and EUR ROMs, but let me know if this isn't the case.
+
 
 ----------------------------------------------------------------
 
@@ -92,8 +98,8 @@ Concerning Spells:
   #43 attacks your team (enemies align them)
   #44 attacks everyone (they align by themselves)
 
--Spells #45 onward are enemies spells - therefore, they will attack your own team when used, as if an enemy had casted them.
- Note however that some spells, like #49, do inflict damage on enemies instead of your team. I haven't tried them all yet so there could be others among there
+-Spells #45 onward are enemy spells - therefore, they will attack your own team when used, as if an enemy had casted them.
+ Note however that some spells, like #49, do inflict damage on enemies instead of your team. I haven't tried them all yet so there could be other rare effects with some spells
 
 -Spell #87: Cures enemies
 -Spell #90: Damages enemies + gives stats raise
@@ -106,11 +112,11 @@ I have mainly tested with EUR copies of the game.
 Should work with USA copies.
 
 -------------------
-Useful AR Codes:
+Useful AR Codes (for EUR Version):
 
 -No random encounters: 
 
--Planets always aligned: 
+-Planets always in "aura boost" zone: 
 
 -------------------
 
