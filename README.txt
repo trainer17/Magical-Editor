@@ -59,7 +59,7 @@ You will need to have Python 3 installed on your computer in order to run the pr
 On choosing protagonist's names:
 
 -When choosing to play both with Male and Female protagonists in your team, you will need to run another tool included here in order to set the "new" protagonist's name 
-	 Simply run "python ./romNameChanger.py" in cmd, open the ROM (.nds) file you are using, and click on "Patch ROM". 
+	 Simply run "python ./romEditor.py" in cmd, open the ROM (.nds) file you are using, and click on "Patch ROM". 
 	 This Should support both USA and EUR ROMs, but let me know if this isn't the case.
 
 

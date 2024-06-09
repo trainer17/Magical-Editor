@@ -1,0 +1,211 @@
+0 Empty
+1 Kick
+2 Punch
+3 Tail swipe
+4 Kick
+5 Tackle
+6 Slap
+7 Reveal
+8 Chiller crush
+9 Open Up
+10 Hug
+11 Ginger puff
+12 Magic
+13 Extort
+14 Swallow
+15 Jiggle
+16 Nudge
+17 Thorn
+18 One last push
+19 Rebirth
+20 Reset
+21 Stargaze
+22 Death punch
+23 Itemize
+24 Bust out
+25 Flee
+26 Quick guard
+27 Guard
+28 Just guard
+29 Cross guard
+30 Temporary
+31 Tackle
+32 Charge
+33 Bite
+34 Chomp
+35 Jaw-horn jab
+36 Cane Smack
+37 Ukulele bash
+38 Lance strike
+39 Stabby jabs
+40 Leaping slash
+41 Weak slash
+42 Slice and dice
+43 Item slash
+44 Sweep attack
+45 Scratch
+46 Cleave
+47 Slug
+48 Punching bag
+49 Tornado dance
+50 Rising hammer
+51 Horn spike
+52 Itty-bitty bite
+53 Squish
+54 Crush
+55 Deja vu
+56 Burst
+57 Sand blaster
+58 Dive bomb
+59 Stompy feet
+60 Cross chops
+61 Cut
+62 Snatch
+63 Dirty-hand slap
+64 Voltage joltage
+65 Single sweep
+66 Toothy chomp
+67 Full-on stomp
+68 Dig in
+69 Licky slap
+70 Swim 'n Bite
+71 Hair puller
+72 Swallow Whole
+73 Hearty bow
+74 Shooty bow
+75 Double arrows
+76 All-purpose shot
+77 Rock chuck
+78 Acorn drop
+79 Egg throw
+80 Single-rod catch
+81 Wallet fishing
+82 Bomb flinger
+83 Bomb launcher
+84 Summon bats
+85 Gust
+86 Sneezing fit
+87 Frog toss
+88 Pigeon launcher
+89 Punishing Beam
+90 Tranquilizer Gun
+91 Rocket Punch
+92 Rocket Punch XL
+93 Wave Attack
+94 Soul hunter
+95 Boomerang
+96 Stardust ride
+97 Hula
+98 Clarion call
+99 Disharmony
+100 Notes of doom
+101 Unsavory samba
+102 Yell
+103 Cry of the soul
+104 Hypnosis
+105 Wink
+106 Sultry swoosh
+107 Uber stench
+108 Crippling BO
+109 Acquire target
+110 Fighting dance
+111 Love shower
+112 Suspicious smirk
+113 Request backup
+114 Summon devils
+115 Summon offering
+116 Thaw
+117 Forward Spin
+118 Reverse Spin
+119 Eat Up
+120 Magic guard
+121 Technique guard
+122 Smoke jet
+123 Reformation
+124 Tackle
+125 Tackle
+126 Skull skewer
+127 Swallow whole
+128 Tackle
+129 Somersault
+130 Cower
+131 Bite
+132 Cell division
+133 Punishing beam
+134 Hammer press
+135 Royal feast
+136 Frog toss
+137 Bite off
+138 Money shower
+139 Bossy support
+140 Bossy support
+141 Emerge
+142 Double arrows
+143 Deep slash
+144 Head-butt
+145 Boomerang staff
+146 Handstand kick
+147 Spinning pumpkin
+148 Punishing bomb
+149 Clarion call
+150 Exploding puff
+151 Empty
+152 Empty
+153 Ant acid
+154 Lackey call
+155 Slice kick
+156 Finger-pointer
+157 Icicle fall
+158 Dancing baby
+159 Jungle coaster
+160 Sky-high kick
+161 Finger-pointer
+162 Bossy push
+163 Bossy push
+164 Bossy push
+165 Blinding stench
+166 Sickening stench
+167 Retching odor
+168 Rolling stamp
+169 Squashing roller
+170 Sweet nothings
+171 Hello, good-bye
+172 Bloom of plenty
+173 Unripe fruit
+174 Clinging
+175 Scream
+176 Blood rage
+177 Counterattack
+178 Sonic sabre
+179 Cyclone waltz
+180 Binding sickle
+181 Sleeping cocoon
+182 Riot cocoon
+183 Bite off
+184 Yell
+185 Desperate lunge
+186 Domination
+187 Red frog gummy
+188 Rising palm
+189 Lotus barrage
+190 Crush
+191 Fill up
+192 Self destruct
+193 Kick of darkness
+194 Sand blast
+195 Tail smack
+196 Zap net
+197 Level 3 lock-on
+198 Missile
+199 Cocoon bust
+200 Icicle breaker
+201 Save yourself
+202 Drop
+203 Gummy sword
+204 Gummy spread
+205 Sword of life
+206 Scale
+207 Stabby fork
+225 Flee
+226 Move
+227 Call relief

@@ -266,7 +266,7 @@ def code(s):
 def codeImhex(s):
     out = ''
     for c in s:
-        out += '00 ' + table[c][2:] + ' '
+        out += table[c][2:] + '00 '
     return out
 
 
