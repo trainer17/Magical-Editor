@@ -497,6 +497,6 @@ def readROMregionWords(addr_from, addr_to, ROMpath = r"..\roms\Magical Starsign\
 
 #Nombres de ataques fisicos:  0x012FA568 - 0x012FB7BF
 #y acciones en general: hasta 0x012FBC16
-physical_attacks = readROMregionWords(0x012FA568, 0x012FB7BF)
+#physical_attacks = readROMregionWords(0x012FA568, 0x012FB7BF)
 
 
