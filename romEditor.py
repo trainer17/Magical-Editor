@@ -18,12 +18,16 @@ from tkinter import N,W,E,S
 import characterTable4
 path = __file__[:-12]
 
+maxNameLenght = 7 # todo: Chequear, no es 8?? es que tengo error al escribir nombres... necesito ver el save de un file con female
+
 
 CHAR_NAMES = ['Male', 'Female', 'Mokka', 'Lassi', 'Pico', 'Chai', 'Sorbet']
 
 ##OFFSETS
 #Los offsets cambian según la región del ROM.... voy a tener cada offset a un bloque como una tupla. Offset de USA va en [0], EUR [1], eventualmente JP en [2]
-char1Offset = [0x0003A1D8,0x0003A47C]
+#char1Offset = [0x0003A1D8,0x0003A47C]
+char1Offset = {'USA': 0x0003A1D8, 'EUR': 0x0003A47C}
+
 
 ##Defino diccionario que guarda los offsets de cada stat en el .sav, relativo al offset del slot de pje
 
@@ -156,7 +160,7 @@ class MagicalROMEditor:
         self.namesFrame = None #tab de solo los dos protas
         self.statsFrame = None #tab con los stats que solo se editan desde el ROM
         self.romRegion = tk.StringVar() # String que vale 'USA, 'EUR', o 'JP'
-        self.romRegionId = None # 0 = USA, 1 = EUR, 2 = JP
+        #self.romRegionId = None # 0 = USA, 1 = EUR, 2 = JP VIEJO 2026
 
         ##GUI CON PESTAÑAS
         root.title("Magical ROM Editor")
@@ -301,7 +305,13 @@ class MagicalROMEditor:
 
         self.determineROMRegion()
 
-        self.updateCharacterData()
+        if(self.romRegion.get() in ['USA', 'EUR'] ):
+            self.updateCharacterData()
+
+
+        tk.Label(self.namesFrame, text ='ROM opened successfully', fg = 'Blue').grid(column=0, row=4, sticky=(N, W,S,E))
+        tk.Label(self.namesFrame, text ='').grid(column=2, row=4, sticky=(N, W,S,E)) #clear "DONE!" anterior
+
 
 
 
@@ -309,10 +319,10 @@ class MagicalROMEditor:
     def determineROMRegion(self):
         #Determino la región del ROM: lo dice el byte 0xF
         region = self.ROMData[0xF]
-        if(region == 0x45): self.romRegion.set('USA') ; self.romRegionId = 0
-        elif(region == 0x50): self.romRegion.set('EUR') ; self.romRegionId = 1
-        elif(region == 0x4A): self.romRegion.set('JP (Not supported)') ; self.romRegionId = 2
-        else: (self.romRegion.set('Not a valid ROM file')) ; self.romRegionId = -1
+        if(region == 0x45): self.romRegion.set('USA') #; self.romRegionId = 0
+        elif(region == 0x50): self.romRegion.set('EUR') #; self.romRegionId = 1
+        elif(region == 0x4A): self.romRegion.set('JP (Not supported)') #; self.romRegionId = 2
+        else: (self.romRegion.set('Not a valid ROM file')) #; self.romRegionId = -1
 
 
     def updateCharacterData(self):
@@ -321,7 +331,7 @@ class MagicalROMEditor:
         for i in range(len(CHARACTERS)):
             char = CHARACTERS[i]
 
-            char.offset = char1Offset[self.romRegionId] + i*100
+            char.offset = char1Offset[self.romRegion.get()] + i*100
 
             #Leo sus stats
             for stat in char.stats.values():
@@ -341,30 +351,41 @@ class MagicalROMEditor:
         d.write(self.ROMData)
         d.close()
 
-        #Todo resetear esta label al abrir otros
-        tk.Label(self.namesFrame, text ='Done!', fg = 'green').grid(column=2, row=4, sticky=(N, W,S,E))
+        tk.Label(self.namesFrame, text ='ROM Patched Successfully!', fg = 'green').grid(column=2, row=4, sticky=(N, W,S,E))
+        tk.Label(self.namesFrame, text ='').grid(column=0, row=4, sticky=(N, W,S,E)) #clear "Opened successfully!" anterior
 
-    #Cambia los nombres por defecto de Male y Female en el ROM
+
+
+    #Cambia los nombres por defecto de Male y Female en el ROM. Esto es para cuando juego con ambos protas, ya que al otro no se le puede cambiar el nombre desde el SAVE
     def updateROMNames(self):
+
+        names = [self.maleName.get(), self.femaleName.get()]
 
         #Male name offsets
         if(self.romRegion.get() == 'EUR'):
             addrs = [eur_EN, eur_FR, eur_DE, eur_ES, eur_IT]
-        if(self.romRegion.get() == 'USA'): addrs = [us]
 
-        #es algo chiquito... no voy a poner un "else return..."
+
+        if(self.romRegion.get() == 'USA'):
+            addrs = [us]
 
         bi = 0 #bytes escritos hasta el momento
+
+    #todo revisar esto con el ROM, que está dudoso! Los nombres se almacenan de manera contigua en la memoria? O usan fixed lenght??
+    #testée con USA, y parecen ser FIXED lenghts... no tengo para ver el ROM acá ahora, hago un fix ciego en base al ROM USA
 
         for name in [self.maleName.get(), self.femaleName.get(), 'Mokka', 'Lassi', 'Pico', 'Chai', 'Sorbet', 'Kir', 'Nogg', 'Fondue', 'Tom Yam', 'Gelato', 'Star', 'Pooka']:
             for addr in addrs:
 
-                nombre = name[:8] #trim length sobrante
+                nombre = name[:maxNameLenght] #trim length sobrante
                 n = 2*len(nombre) + 2 #cada caracter son 2 bytes, y además está el string terminator que es 0xFF 0xFF
                 nombre_bytes = characterTable4.makeName(nombre)[0:n] #guardo solo un string terminator char acá (0xFF 0xFF). O sea, recorto los 0xFF sobrantes
                 self.writeBytesROM(addr[0]+ bi,nombre_bytes, n, dup_addr = addr[1]+bi)
 
             bi += n
+
+
+
 
         return
 
@@ -534,7 +555,7 @@ def openImage(path, sizeX, sizeY):
 
 
 def name_input(input):
-    if len(input)<=8: return True
+    if len(input)<=maxNameLenght: return True
     else:  return False
 
 
@@ -577,7 +598,7 @@ def crearBoxDesplegable(stat, tab, optionsList, imgDic = {}):
 
 
 root = tk.Tk()
-root.geometry("450x300")
+root.geometry("1100x400")
 root.resizable(width=True, height=True)
 MagicalROMEditor(root)
 root.mainloop()
